@@ -1,0 +1,36 @@
+<!--pages/apply/checkApply.wxml-->
+<view class="title" wx:if="{{id==1}}">审核居住证</view>
+<view class="title" wx:if="{{id!=1}}">审核租房请求</view>
+<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+  <van-collapse-item icon="label-o" title="申请{{k+1}}" name="{{k}}" wx:key="id" wx:for="{{applies}}" wx:for-item="apply" wx:for-index="k">
+    <van-cell-group>
+      <van-cell title="出租屋地址" value="{{apply.address}}" />
+      <van-cell title="申请时间" value="{{apply.applyTime}}" />
+      <van-cell wx:if="{{id!=1}}" title="起租时间" value="{{apply.startTime}}" />
+      <van-cell wx:if="{{id!=1}}" title="结束时间" value="{{apply.endTime}}" />
+      <van-cell title="申请人" value="{{apply.name}}" />
+      <van-cell title="申请人电话" value="{{apply.phoneNumber}}" />
+      <van-cell wx:if="{{id==1}}" title="申请id" value="{{apply.id}}" />
+      <view wx:if="{{id==1}}" class="my-picker">
+        <view class="my-picker-label" style="margin-left: 14px;font-weight: 600;">取证地点</view>
+        <picker mode="region" bindchange='inputResLocation' style="position: absolute;right:15px;" data-apply-id="{{apply.id}}">
+          <input enable="false" style="text-align: right;" class="my-picker-input" placeholder-style="color:#bbbbbb;font-size:28rpx;" placeholder="请选择地址" value="{{apply.resLocation}}" disabled>hello world</input>
+        </picker>
+      </view>
+      <view wx:if="{{id==1}}" class="my-picker">
+        <view class="my-picker-label" style="margin-left: 14px;font-weight: 600;">取证时间</view>
+        <picker mode="date" bindchange='inputResTime' style="position: absolute;right:15px;" data-apply-id="{{ apply.id }}">
+          <input enable="false" style="text-align: right;" class="my-picker-input" placeholder-style="color:#bbbbbb;font-size:28rpx;" placeholder="请选择开始时间" value="{{apply.resTime}}" disabled>hello world</input>
+        </picker>
+      </view>
+    </van-cell-group>
+    <view wx:if="{{apply.verifyStatus == 1}}" class="vertical-flex">
+      <button class="normal-button" style="background-color: green;" bindtap="checkAgree" data-id='{{apply.id}}'>同意</button>
+      <button class="normal-button" bindtap="checkRefuse" data-id='{{apply.id}}'>拒绝</button>
+    </view>
+    <view wx:if="{{apply.verifyStatus != 1}}" class="vertical-flex">
+      <text class="hint" wx:if="{{apply.verifyStatus == 2}}">已同意</text>
+      <text class="hint" style="color: red;" wx:if="{{apply.verifyStatus == 3}}">已拒绝</text>
+    </view>
+  </van-collapse-item>
+</van-collapse>

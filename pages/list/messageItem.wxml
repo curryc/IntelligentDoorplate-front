@@ -1,0 +1,34 @@
+<!--pages/list/messageItem.wxml-->
+<view class="page">
+  <van-cell-group>
+    <van-field left-icon="envelop-o" model:value="{{id}}" label="信息ID" placeholder="输入信息ID" input-align="left" disabled />
+    <van-field left-icon="user-circle-o" model:value="{{userId}}" label="巡查者ID" placeholder="输入巡查者ID" input-align="left" />
+    <van-field left-icon="notes-o" model:value="{{taskId}}" label="任务ID" placeholder="输入任务ID" input-align="left" />
+    <van-field left-icon="guide-o" model:value="{{longitude}}" label="经度" placeholder="输入经度" input-align="left" />
+    <van-field left-icon="guide-o" model:value="{{latitude}}" label="纬度" placeholder="输入纬度" input-align="left" />
+    <van-field left-icon="eye-o" model:value="{{visitTime}}" label="巡查时间" placeholder="输入巡查时间" input-align="left" />
+  </van-cell-group>
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/location.png"></image>
+    <view class="my-picker-label">选择地址</view>
+    <picker mode="region" bindchange='inputAddress'>
+      <input enable="false" class="my-picker-input" placeholder-style="color:#bebebe;font-size:14px" placeholder="选择地址" value="{{address}}" disabled>hello world</input>
+    </picker>
+  </view>
+
+  <van-cell-group>
+    <van-field left-icon="home-o" model:value="{{address}}" label="详细地址" placeholder="请输入详细地址" input-align="left" />
+  </van-cell-group>
+
+  <image src="{{imageUrl}}" class="choose-image" bindtap="chooseImage"></image>
+
+  <van-field label="详情" model:value="{{description}}" placeholder="输入详情介绍" type="textarea" autosize />
+  <view class="label">详细信息，还可以输入 {{description?255-description.length:255}} 字</view>
+  <view wx:if="{{id}}" class="btn1check">
+    <van-button class="btncheck" type="primary" bindtap="update">更改数据</van-button>
+    <van-button class="btncheck" type="danger" bindtap="delete">删除数据</van-button>
+  </view>
+  <view wx:if="{{!id}}" class="btn1check">
+    <van-button class="btncheck" type="primary" bindtap="add">添加数据</van-button>
+  </view>
+</view>

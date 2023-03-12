@@ -1,0 +1,13 @@
+<!--pages/distributeTask/distributeTask.wxml-->
+<view class="title">任务历史</view>
+<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+  <van-collapse-item icon="completed" title="任务{{k+1}}  {{task.name}}" name="{{k}}" wx:key="id" wx:for="{{tasks}}" wx:for-item="task" wx:for-index="k">
+    <van-cell-group>
+      <van-cell title="完成时间" value="{{task.completeTime}}" />
+      <van-cell wx:if="{{task.type == 1}}" title="任务类型" value="定时任务" />
+      <van-cell wx:if="{{task.type == 2}}" title="任务类型" value="临时任务" />
+      <van-cell title="任务描述" value="{{task.description}}" />
+      <van-cell title="任务ID" value="{{task.id}}" />  
+    </van-cell-group>
+  </van-collapse-item>
+</van-collapse>

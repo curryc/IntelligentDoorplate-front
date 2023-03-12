@@ -1,0 +1,43 @@
+<!--pages/apply/registerRent.wxml-->
+<view class="title">登记承租人</view>
+<view class="page" style="margin: 2%;">
+  <van-cell-group>
+    <view class="input-wrapper">
+      <van-field left-icon="friends-o" model:value="{{name}}" label="姓名" placeholder="请输入姓名" input-align="left" />
+    </view>
+  </van-cell-group>
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/gender.png"></image>
+    <view class="my-picker-label">性别</view>
+    <van-radio-group bind:change="selectGender" style="margin-left: 70px;" class="my-picker-input" value="{{gender?'1':'0'}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1">男</van-radio>
+      <van-radio checked-color="#e64340" name="0">女</van-radio>
+    </van-radio-group>
+  </view>
+  <van-cell-group>
+    <view class="input-wrapper">
+      <van-field left-icon="idcard" label="身份证" model:value="{{idNumber}}" placeholder="请输入身份证号" input-align="left" />
+    </view>
+  </van-cell-group>
+  <van-cell-group>
+    <view class="input-wrapper">
+      <van-field left-icon="phone-circle-o" label="手机号" model:value="{{phoneNumber}}" placeholder="请输入手机号" input-align="left"></van-field>
+    </view>
+  </van-cell-group>
+  <van-cell-group>
+    <view class="input-wrapper">
+      <van-field left-icon="envelop-o" label="电子邮箱" model:value="{{email}}" placeholder="请输入电子邮箱" input-align="left" />
+    </view>
+  </van-cell-group>
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/location.png"></image>
+    <view class="my-picker-label">选择地址</view>
+    <picker mode="region" bindchange='inputAddress'>
+      <input enable="false" class="my-picker-input" placeholder-style="color:#bebebe;font-size:14px" placeholder="请选择地址" value="{{address}}" disabled>hello world</input>
+    </picker>
+  </view>
+  <van-field left-icon="home-o" model:value="{{address}}" label="详细地址" placeholder="请输入详细地址" input-align="left" />
+  <view>
+    <button class="normal-button" bindtap="register">提交</button>
+  </view>
+</view>

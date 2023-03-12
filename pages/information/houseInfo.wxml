@@ -1,0 +1,28 @@
+<!--pages/information/houseInfo.wxml-->
+<view>
+  <view class="type-title">房屋信息</view>
+  <van-cell-group inset>
+    <van-cell title="房屋Id" value="{{houseInfos.id}}" />
+    <van-cell title="房屋地址" value="{{houseInfos.address}}" />
+    <van-cell title="是否被绑定" value="{{houseInfos.isBound?'是':'否'}}" />
+    <van-cell title="是否被出租" value="{{houseInfos.isRented?'是':'否'}}" />
+  </van-cell-group>
+  <view class="type-title">户主信息</view>
+  <van-cell-group inset>
+    <van-cell title="户主姓名" value="{{household.name}}" />
+    <van-cell title="户主性别" value="{{household.gender?'男':'女'}}" />
+    <van-cell title="户主身份证号" value="{{household.idNumber}}" />
+    <van-cell title="户主电话" value="{{household.phoneNumber}}" />
+    <van-cell title="户主邮箱" value="{{household.email}}" />
+    <van-cell title="户主籍贯" value="{{household.address}}" />
+  </van-cell-group>
+  <view wx:if="{{tenant}}" class="type-title">承租人信息</view>
+  <van-cell-group wx:if="{{tenant}}" inset>
+    <van-cell title="承租人姓名" value="{{tenant.name}}" />
+    <van-cell title="承租人性别" value="{{tenant.gender?'男':'女'}}" />
+    <van-cell title="承租人身份证号" value="{{tenant.idNumber}}" />
+    <van-cell title="承租人电话" value="{{tenant.phoneNumber}}" />
+    <van-cell title="承租人邮箱" value="{{tenant.email}}" />
+    <van-cell title="承租人籍贯" value="{{tenant.address}}" />
+  </van-cell-group>
+</view>

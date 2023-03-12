@@ -1,0 +1,20 @@
+<!--pages/progress/residenceProgress.wxml-->
+<!-- <view wx:for="{{applyResidences}}" wx:key="id" wx:for-item="applyResidence">
+  <text>{{applyResidence.applyTime}}</text>
+</view> -->
+<view class="title">居住证申请进度</view>
+  <van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+  <van-collapse-item icon="label-o" title="申请{{k+1}}" name="{{k}}" wx:key="id" wx:for="{{applyResidences}}" wx:for-item="apply" wx:for-index="k">
+    <van-cell-group>
+      <van-cell title="审核状态">      
+        <van-tag wx:if="{{apply.verifyStatus==1}}" type="primary">已提交</van-tag>
+        <van-tag wx:if="{{apply.verifyStatus==2}}" type="success">审核成功</van-tag>
+        <van-tag wx:if="{{apply.verifyStatus==3}}" type="danger">审核失败</van-tag>      
+      </van-cell>
+      <van-cell title="申请时间" value="{{apply.applyTime}}" />
+      <van-cell title="取证时间" wx:if="{{apply.resTime!=null}}" value="{{apply.resTime}}" />
+      <van-cell title="取证地点" wx:if="{{apply.resLocation!=null}}" value="{{apply.resLocation}}" />
+      <van-cell title="申请id" value="{{apply.id}}" />
+    </van-cell-group>
+  </van-collapse-item>
+</van-collapse>

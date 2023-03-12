@@ -1,0 +1,13 @@
+<!--pages/login/login.wxml-->
+
+<van-icon class="logo" name="https://b.yzcdn.cn/vant/icon-demo-1126.png" size="100px" />
+<view class="ipt-wrap">
+
+  <van-cell-group>
+    <van-field class="ipt" maxlength="11" model:value="{{phoneNumber}}" left-icon="user-circle-o" lable="电话号码" placeholder="请输入电话号码" />
+    <van-field class="ipt" maxlength="11" model:value="{{password}}" left-icon="lock" type="password" lable="密码" placeholder="请输入密码" />
+  </van-cell-group>
+</view>
+<view class="r-wrap">
+  <button class="normal-button" bindtap="login">登录</button>
+</view>

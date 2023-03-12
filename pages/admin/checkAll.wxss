@@ -1,0 +1,9 @@
+/* pages/admin/checkAll.wxss */
+.rightside{
+  position: absolute;
+  left:200rpx;
+  right: 5px;
+}
+.leftside{
+  position: fixed;
+}

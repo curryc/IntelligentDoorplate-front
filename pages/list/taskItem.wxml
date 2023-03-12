@@ -1,0 +1,45 @@
+<!--pages/list/taskItem.wxml-->
+<view class="page">
+  <van-cell-group>
+    <van-field left-icon="bullhorn-o" model:value="{{id}}" label="任务ID" placeholder="记录ID" input-align="left" disabled />
+    <van-field left-icon="wap-home-o" model:value="{{qrId}}" label="房屋ID" placeholder="房屋ID" input-align="left" />
+    <van-field left-icon="manager-o" model:value="{{userId}}" label="巡警ID" placeholder="巡警ID" input-align="left" />
+    <van-field left-icon="notes-o" model:value="{{name}}" label="任务名称" placeholder="任务名称" input-align="left" />
+  </van-cell-group>
+
+  <view class="my-picker">
+    <van-icon name="label-o" class="my-picker-icon" />
+    <view class="my-picker-label">任务类型</view>
+    <van-radio-group bind:change="selectType" style="margin-left: 40px;" class="my-picker-input" value="{{''+type}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1">定时</van-radio>
+      <van-radio checked-color="#e64340" name="2">临时</van-radio>
+    </van-radio-group>
+  </view>
+
+  <view class="my-picker">
+    <van-icon name="question-o" class="my-picker-icon" />
+    <view class="my-picker-label">是否完成</view>
+    <van-radio-group bind:change="selectCompleted" style="margin-left: 40px;" class="my-picker-input" value="{{isCompleted?'1':'0'}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1">是</van-radio>
+      <van-radio checked-color="#e64340" name="0">否</van-radio>
+    </van-radio-group>
+  </view>
+
+
+  <van-cell-group>
+    <van-field left-icon="underway-o" model:value="{{startTime}}" label="开始时间" placeholder="开始时间" input-align="left" />
+    <van-field left-icon="underway-o" model:value="{{endTime}}" label="结束时间" placeholder="结束时间" input-align="left" />
+    <van-field left-icon="underway-o" model:value="{{completeTime}}" label="完成时间" placeholder="完成时间" input-align="left" />
+    <van-field left-icon="more-o" model:value="{{count}}" label="剩余次数" placeholder="剩余次数" input-align="left" />
+    <van-field left-icon="comment-o" label="详情" model:value="{{description}}" placeholder="详情介绍" type="textarea" autosize />
+  <view class="label">详细信息，还可以输入 {{description?255-description.length:255}} 字</view>
+  </van-cell-group>
+
+  <view wx:if="{{id}}" class="btn1check">
+    <van-button class="btncheck" type="primary" bindtap="update">更改数据</van-button>
+    <van-button class="btncheck" type="danger" bindtap="delete">删除数据</van-button>
+  </view>
+  <view wx:if="{{!id}}" class="btn1check">
+    <van-button class="btncheck" type="primary" bindtap="add" >添加数据</van-button>
+  </view>
+</view>

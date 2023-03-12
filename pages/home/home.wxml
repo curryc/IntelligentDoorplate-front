@@ -1,0 +1,33 @@
+<!--pages/home/home.wxml-->
+<view class="title">个人主页</view>
+<view class="container">
+  <view class="no-login">
+    <button class="normal-button" wx:if="{{!loged}}" bindtap="login">立即登录</button>
+  </view>
+  <view class="index-menu">
+    <navigator class="index-menu-item" wx:if="{{loged && userInfo.roleId == 3}}" wx:for="{{indexmenuPatrolPolice}}" wx:key="url" url="../{{item.url}}">
+      <image src="{{item.icon}}"></image>
+      <text>{{item.text}}</text>
+    </navigator>
+    <navigator class="index-menu-item" wx:if="{{loged && userInfo.roleId == 4}}" wx:for="{{indexmenuHouseHold}}" wx:key="url" url="../{{item.url}}">
+      <image src="{{item.icon}}"></image>
+      <text>{{item.text}}</text>
+    </navigator>
+    <navigator class="index-menu-item" wx:if="{{loged && userInfo.roleId == 6}}" wx:for="{{indexmenuNormalPopulation}}" wx:key="url" url="../{{item.url}}">
+      <image src="{{item.icon}}"></image>
+      <text>{{item.text}}</text>
+    </navigator>
+    <!-- <navigator class="index-menu-item" wx:if="{{loged && userInfo.roleId == 6 && userInfo.isResidence}}" wx:for="{{indexmenuNormalPopulation}}" wx:key="url" url="../{{item.url}}">
+      <image src="{{item.icon}}"></image>
+      <text>{{item.text}}</text>
+    </navigator> -->
+    <navigator class="index-menu-item" wx:if="{{loged && userInfo.roleId == 1}}" wx:for="{{indexmenuAdmin}}" wx:key="url" url="../{{item.url}}">
+      <image src="{{item.icon}}"></image>
+      <text>{{item.text}}</text>
+    </navigator>
+  </view>
+  <view style="display: flex;flex-direction: row;">
+    <button class="normal-button" style="margin-right: 20px;" wx:if="{{loged}}" bindtap="modPassword">修改密码</button>
+    <button class="normal-button" wx:if="{{loged}}" bindtap="logout">退出登录</button>
+  </view>
+</view>

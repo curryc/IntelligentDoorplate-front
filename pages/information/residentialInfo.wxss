@@ -1,0 +1,4 @@
+/* pages/information/residentialInfo.wxss */
+page{
+  background-color: #efefef;
+}

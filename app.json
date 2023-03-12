@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/doorplate/doorplate",
+    "pages/task/distributeTask",
+    "pages/login/login",
+    "pages/apply/applyRent",
+    "pages/apply/applyHost",
+    "pages/apply/applyResident",
+    "pages/apply/checkApply",
+    "pages/statistic/taskStatistic",
+    "pages/task/complete",
+    "pages/admin/checkAll",
+    "pages/list/userItem",
+    "pages/list/applyItem",
+    "pages/list/recordItem",
+    "pages/list/messageItem",
+    "pages/list/qrcodeItem",
+    "pages/list/taskItem",
+    "pages/record/history",
+    "pages/record/rentHistory",
+    "pages/progress/residenceProgress",
+    "pages/progress/rentProgress",
+    "pages/information/houseInfo",
+    "pages/information/residentialInfo",
+    "pages/information/normalHouse",
+    "pages/apply/registerRent",
+    "pages/apply/relateDoorplate",
+    "pages/login/modifyPassword",
+    "pages/task/goComplete"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取定位"
+    }
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-config-provider": "@vant/weapp/config-provider/index",
+    "van-cascader": "@vant/weapp/cascader/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index"
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ]
+}

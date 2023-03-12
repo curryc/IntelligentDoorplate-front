@@ -1,0 +1,15 @@
+/* pages/task/complete.wxss */
+
+.label{
+  font-size: 15px;
+  color: #181818;
+  font-weight: 400;
+  margin: 15px;
+}
+
+.input-area{
+  height: 200px;
+  width: 94%;
+  margin: 3%;
+  border: 2px solid #eeeeee;
+}

@@ -1,0 +1,13 @@
+/* pages/apply/checkApply.wxss */
+.vertical-flex{
+  display: flex;
+  flex-direction: row;
+}
+
+.hint{
+  font-size: 25px;
+  width: 20%;
+  margin-left: 40%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

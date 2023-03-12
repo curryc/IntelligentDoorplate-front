@@ -1,0 +1,9 @@
+<!--pages/task/goComplete.wxml-->
+<map id="map" markers="{{markers}}" scale="{{scale}}" bindregionchange="regionchange" show-location style="width: 100%; height:{{height}}px;">
+  <view>
+    <button class="normal-button" bindtap="complete" style="position: absolute;bottom: 0;margin-bottom: 30%;margin-left: 40%;width: 20%;">完成任务</button>
+    <text>正在追踪任务：{{task.id}} : {{task.name}}</text>
+    <text>\n经纬度:[{{task.longitude}},{{task.latitude}}]</text>
+    <text wx:if="{{nearby}}" style="position:absolute;right: 3px;top: 3px;font-size: 18px;color: #e64340;background-color: rgba(255, 255, 255, 0.342);">目的地在附近!</text>
+  </view>
+</map>

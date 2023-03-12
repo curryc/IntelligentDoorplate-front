@@ -1,0 +1,27 @@
+<!--pages/task/complete.wxml-->
+<view class="title">巡查任务</view>
+<view class="page">
+  <van-divider wx:if="{{taskType == 1}}" fontSize="16" contentPosition="center">定时任务</van-divider>
+  <van-divider wx:if="{{taskType == 2}}" fontSize="16" contentPosition="center">临时任务</van-divider>
+  <!-- <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/feedback.png"></image>
+    <view class="my-picker-label">房屋是否出租</view>
+    <van-radio-group bind:change="selectRented" style="margin-left: 15px;" class="my-picker-input" value="{{rented?'1':'0'}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1">是</van-radio>
+      <van-radio checked-color="#e64340" name="0">否</van-radio>
+    </van-radio-group>
+  </view> -->
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/location.png"></image>
+    <view class="my-picker-label">巡查地址</view>
+    <picker mode="region" bindchange='inputAddress'>
+      <input enable="false" class="my-picker-input" placeholder-style="color:#bbbbbb;font-size:14px" placeholder="请选择地址" value="{{address}}" disabled>hello world</input>
+    </picker>
+  </view>
+  <van-field left-icon="home-o" model:value="{{address}}" label="详细地址" placeholder="请输入详细地址" input-align="left" />
+  <view class="label">详细信息，还可以输入 {{255-description.length}} 字</view>
+  <textarea class="input-area" bindinput="inputDescription"></textarea>
+
+  <image src="{{imageUrl}}" class="choose-image" bindtap="chooseImage"></image>
+  <button class="normal-button" bindtap="apply">提交</button>
+</view>

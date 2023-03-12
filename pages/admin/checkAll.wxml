@@ -1,0 +1,23 @@
+<!--pages/admin/checkAll.wxml-->
+<container class="leftside">
+  <van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
+    <van-sidebar-item title="用户" />
+    <van-sidebar-item title="申请" />
+    <van-sidebar-item title="巡查信息" />
+    <van-sidebar-item title="二维码" />
+    <van-sidebar-item title="租房记录" />
+    <van-sidebar-item title="任务" />
+  </van-sidebar>
+</container>
+<container class="rightside">
+  <van-cell-group wx:if="{{activeKey!=-1}}" title="共{{tables[activeKey].count}}条数据">
+    <van-cell wx:if="{{activeKey!=-1}}" title="添加记录" icon="plus" is-link url="../list/{{tables[activeKey].name}}Item?id=-1" />
+    <van-cell wx:if="{{tables[activeKey].name=='user'}}" title="{{record.id}}" wx:key="user" wx:for="{{records}}" wx:for-item="record" is-link value="查看" icon="user-o" url="../list/userItem?id={{record.id}}" />
+    <van-cell wx:if="{{tables[activeKey].name=='apply'}}" title="{{record.id}} " wx:key="apply" wx:for="{{records}}" wx:for-item="record" is-link value="查看" icon="notes-o" url="../list/applyItem?id={{record.id}}" />
+    <van-cell wx:if="{{tables[activeKey].name=='message'}}" title="{{record.id}}" wx:key="message" wx:for="{{records}}" wx:for-item="record" is-link value="查看" icon="envelop-o" url="../list/messageItem?id={{record.id}}" />
+    <van-cell wx:if="{{tables[activeKey].name=='qrcode'}}" title="{{record.id}}" wx:key="qrcode" wx:for="{{records}}" wx:for-item="record" is-link value="查看" icon="qr" url="../list/qrcodeItem?id={{record.id}}" />
+    <van-cell wx:if="{{tables[activeKey].name=='record'}}" title="{{record.id}}" wx:key="record" wx:for="{{records}}" wx:for-item="record" is-link value="查看" icon="records" url="../list/recordItem?id={{record.id}}" />
+    <van-cell wx:if="{{tables[activeKey].name=='task'}}" title="{{record.id}}" wx:key="task" wx:for="{{records}}" wx:for-item="record" is-link value="查看" icon="completed" url="../list/taskItem?id={{record.id}}" />
+    <van-cell title="加载更多" icon="more-o" bind:click="getMore"/>
+  </van-cell-group>
+</container>

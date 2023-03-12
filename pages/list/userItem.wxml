@@ -1,0 +1,63 @@
+<!-- pages/list/userItem.wxml-->
+<view class="page">
+  <van-cell-group>
+    <van-field left-icon="user-circle-o" model:value="{{id}}" label="用户ID" placeholder="用户ID" input-align="left" disabled />
+    <van-field left-icon="friends-o" model:value="{{name}}" label="姓名" placeholder="姓名" input-align="left" />
+  </van-cell-group>
+
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/gender.png"></image>
+    <view class="my-picker-label">性别</view>
+    <van-radio-group bind:change="selectGender" style="margin-left: 70px;" class="my-picker-input" value="{{gender?'1':'0'}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1">男</van-radio>
+      <van-radio checked-color="#e64340" name="0">女</van-radio>
+    </van-radio-group>
+  </view>
+
+  <van-cell-group>
+    <van-field left-icon="idcard" model:value="{{idNumber}}" label="身份证" placeholder="身份证" input-align="left" />
+    <van-field left-icon="phone-circle-o" model:value="{{phoneNumber}}" label="手机号" placeholder="手机号" input-align="left" />
+    <van-field left-icon="envelop-o" model:value="{{email}}" label="电子邮箱" placeholder="电子邮箱" input-align="left" />
+  </van-cell-group>
+
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/location.png"></image>
+    <view class="my-picker-label">选择地址</view>
+    <picker mode="region" bindchange='inputAddress'>
+      <input enable="false" class="my-picker-input" placeholder-style="color:#bebebe;font-size:14px" placeholder="地址" value="{{address}}" disabled>hello world</input>
+    </picker>
+  </view>
+  <van-cell-group>
+    <van-field left-icon="home-o" model:value="{{address}}" label="详细地址" placeholder="请输入详细地址" input-align="left" />
+  </van-cell-group>
+
+  <view class="my-picker">
+
+    <van-icon name="question-o" class="my-picker-icon" />
+    <view class="my-picker-label">有无居住证</view>
+    <van-radio-group bind:change="selectResidence" style="margin-left: 25px;" class="my-picker-input" value="{{isResidence?'1':'0'}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1">有</van-radio>
+      <van-radio checked-color="#e64340" name="0">无</van-radio>
+    </van-radio-group>
+  </view>
+
+  <view class="my-picker" style="margin-top: 30px;">
+   
+    <view class="my-picker-label" style="margin-bottom: 30px;margin-left:30px;width: 60px;">角色</view>
+    <van-radio-group bind:change="selectRole" style="margin-bottom: 30px;margin-right: -10px;" class="my-picker-input" value="{{''+roleId}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="2">民警</van-radio>
+      <van-radio checked-color="#e64340" name="3">巡警</van-radio>
+      <van-radio checked-color="#e64340" name="4">户主</van-radio>
+      <van-radio checked-color="#e64340" name="5">承租人</van-radio>
+      <van-radio checked-color="#e64340" name="6">普通人</van-radio>
+    </van-radio-group>
+  </view>
+
+  <view wx:if="{{id}}" class="btn1check">
+    <van-button class="btncheck" type="primary" bindtap="update">更改数据</van-button>
+    <van-button class="btncheck" type="danger" bindtap="delete">删除数据</van-button>
+  </view>
+  <view wx:if="{{!id}}" class="btn1check">
+    <van-button class="btncheck" type="primary" bindtap="add">添加数据</van-button>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+/**index.wxss**/
+@import '/assets/style/iconfont.wxss'; 
+
+page{
+  height:100%;
+}
+
+.userinfo {
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  color: #aaa;
+  position: absolute;
+  left: 1%;
+  top: 1%;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 50rpx;
+  height: 50rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+
+.func-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12pt;
+  font-family: serif;
+  padding: 40rpx 0;
+}
+
+.func-item .iconfont {
+  font-size: 150pt;
+  margin-bottom: 20rpx;
+}

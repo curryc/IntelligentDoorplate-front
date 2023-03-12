@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container" style="padding-top: 30%;background:url('https://img2.woyaogexing.com/2019/07/16/6d8c2900e85448359af0c2003cfe17ed%211080x1920.jpeg');background-size: 100% 100%;">
+  <view class="userinfo" bindtap="goToUserHome">
+    <view class="userinfo-avatar">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <text type="userNickName" >Welcome! {{userInfo.name}}</text>
+  </view>
+  <view class="func-item" bindtap="scanCode">
+    <view class="iconfont icon-saoma"></view>
+    <text>扫一扫</text>
+  </view>
+</view>

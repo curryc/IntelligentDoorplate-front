@@ -1,0 +1,108 @@
+<!--pages/list/applyItem.wxml-->
+<view class="page">
+  <van-cell-group>
+    <van-field left-icon="records" model:value="{{id}}" label="申请ID" placeholder="请输入申请ID" input-align="left" disabled/>
+    <van-field left-icon="user-circle-o" model:value="{{userId}}" label="申请人ID" placeholder="请输入申请人ID" input-align="left"/>
+    <van-field left-icon="user-circle-o" model:value="{{processorId}}" label="处理人ID" placeholder="请输入处理人ID" input-align="left"/>
+    <van-field left-icon="friends-o" model:value="{{name}}" label="姓名" placeholder="请输入姓名" input-align="left" />
+  </van-cell-group>
+
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/gender.png"></image>
+    <view class="my-picker-label">性别</view>
+    <van-radio-group bind:change="selectGender" style="margin-left: 70px;" class="my-picker-input" value="{{gender?'1':'0'}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1">男</van-radio>
+      <van-radio checked-color="#e64340" name="0">女</van-radio>
+    </van-radio-group>
+  </view>
+  <van-cell-group>
+    <van-field left-icon="idcard" model:value="{{idNumber}}" label="身份证" placeholder="请输入身份证" input-align="left" />
+    <van-field left-icon="phone-circle-o" model:value="{{phoneNumber}}" label="手机号" placeholder="请输入手机号" input-align="left" />
+    <van-field left-icon="envelop-o" model:value="{{email}}" label="电子邮箱" placeholder="请输入电子邮箱" input-align="left" />
+  </van-cell-group>
+
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/location.png"></image>
+    <view class="my-picker-label">选择地址</view>
+    <picker mode="region" bindchange='inputAddress'>
+      <input enable="false" class="my-picker-input" placeholder-style="color:#bebebe;font-size:14px" placeholder="请选择地址" value="{{address}}" disabled>hello world</input>
+    </picker>
+  </view>
+  <van-cell-group>
+    <van-field left-icon="home-o" model:value="{{address}}" label="详细地址" placeholder="请输入详细地址" input-align="left" />
+  </van-cell-group>
+
+  <image src="{{pictureUrl}}" class="choose-image" bindtap="chooseImage"></image>
+
+  <view class="my-picker"style="margin-top: 30px;">
+    <!-- <image class="my-picker-icon" src="../../assets/images/gender.png"></image> -->
+    <view class="my-picker-label" style="margin-bottom: 30px;margin-left:30px;width: 90px;">审核状态</view>
+    <van-radio-group bind:change="selectStatus" style="margin-bottom: 30px;margin-right: -10px;" class="my-picker-input" value="{{''+verifyStatus}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1" style="margin-bottom:10px;">已提交</van-radio>
+      <van-radio checked-color="#e64340" name="2">审核成功</van-radio>
+      <van-radio checked-color="#e64340" name="3">审核失败</van-radio>
+    </van-radio-group>
+  </view>
+
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/date2.png"></image>
+    <view class="my-picker-label">申请时间</view>
+    <picker mode="date" bindchange='inputApplyTime'>
+      <input enable="false" class="my-picker-input" placeholder-style="color:#bbbbbb;font-size:14px" placeholder="请选择申请时间" value="{{applyTime}}" disabled>hello world</input>
+    </picker>
+  </view>
+
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/date2.png"></image>
+    <view class="my-picker-label">开始时间</view>
+    <picker mode="date" bindchange='inputStartTime'>
+      <input enable="false" class="my-picker-input" placeholder-style="color:#bbbbbb;font-size:14px" placeholder="请选择开始时间" value="{{startTime}}" disabled>hello world</input>
+    </picker>
+  </view>
+
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/date2.png"></image>
+    <view class="my-picker-label">结束时间</view>
+    <picker mode="date" bindchange='inputEndTime'>
+      <input enable="false" class="my-picker-input" placeholder-style="color:#bebebe;font-size:14px" placeholder="请选择结束时间" value="{{endTime}}" disabled>hello world</input>
+    </picker>
+  </view>
+
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/date2.png"></image>
+    <view class="my-picker-label">取证时间</view>
+    <picker mode="date" bindchange='inputResTime'>
+      <input enable="false" class="my-picker-input" placeholder-style="color:#bebebe;font-size:14px" placeholder="请选择取证时间" value="{{resTime}}" disabled>hello world</input>
+    </picker>
+  </view>
+
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/location.png"></image>
+    <view class="my-picker-label">取证地址</view>
+    <picker mode="region" bindchange='inputResLocation'>
+      <input  class="my-picker-input" placeholder-style="color:#bebebe;font-size:14px" placeholder="请选择取证地址" value="{{resLocation}}" disabled>hello world</input>
+    </picker>
+  </view>
+
+  <van-cell-group>
+    <van-field left-icon="home-o" model:value="{{resLocation}}" label="详细地址" placeholder="请输入详细地址" input-align="left" />
+  </van-cell-group>
+  
+  <view class="my-picker">
+    <van-icon name="label-o" class="my-picker-icon" />
+    <view class="my-picker-label">申请类别</view>
+    <van-radio-group bind:change="selectType" style="margin-left: 40px;" class="my-picker-input" value="{{''+type}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1">居住证</van-radio>
+      <van-radio checked-color="#e64340" name="0">租房</van-radio>
+    </van-radio-group>
+  </view>
+  
+  <!-- <image src="{{imageUrl}}" class="choose-image" bindtap="chooseImage"></image> -->
+  <view wx:if="{{id}}" class="btn1check">
+    <van-button class="btncheck" type="primary" bindtap="update">更改数据</van-button>
+    <van-button class="btncheck" type="danger" bindtap="delete">删除数据</van-button>
+  </view>
+  <view wx:if="{{!id}}" class="btn1check">
+    <van-button class="btncheck" type="primary" bindtap="add" >添加数据</van-button>
+  </view>
+</view>

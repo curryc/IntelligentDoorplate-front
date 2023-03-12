@@ -1,0 +1,47 @@
+<!--pages/doorplate/doorplate.wxml-->
+<view class="page">
+  <swiper class="top" autoplay='true' interval='3000' duration='500' circular='true' indicator-dots="true" indicator-active-color="#eee">
+    <block wx:for="{{imgUrls}}" wx:key="index">
+      <swiper-item>
+        <image class="topimage" src="{{item}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 用户信息 -->
+  <button class="login-button" wx:if="{{!userInfo}}" bindtap="login">还未登录，前往登录</button>
+  <!-- 无需登录专栏 -->
+  <view class="order-box">
+    <view class="top-line">通用专栏</view>
+    <view class="o-menus">
+      <view bindtap="navTo" data-url="/pages/apply/applyResident" class="explain">申请居住证</view>
+      <view bindtap="navTo" data-url="/pages/apply/applyRent?id={{id}}" class="explain">申请租房</view>
+      <view bindtap="navTo" data-url="/pages/information/normalHouse?id={{id}}" class="explain">房屋信息</view>
+    </view>
+  </view>
+  <!-- 户主专栏 -->
+  <view class="order-box" wx:if="{{ userInfo.roleId == 4 && userInfo.id == hostId}}">
+    <view class="top-line">户主专栏</view>
+    <view class="o-menus">
+      <view bindtap="navTo" data-url='../apply/registerRent?id={{id}}' class="explain">修改承租人信息</view>
+      <view bindtap="navTo" data-url='../apply/relateDoorplate?id={{id}}' class="explain">门牌二维码关联</view>
+    </view>
+  </view>
+
+  <!-- 巡警专栏 -->
+  <view class="order-box" wx:if="{{userInfo.roleId == 3}}">
+    <view class="top-line">巡警专栏</view>
+    <view class="o-menus">
+      <view bindtap="navTo" data-url="/pages/task/complete?id={{id}}" class="explain">巡查任务</view>
+    </view>
+  </view>
+  <!-- 民警专栏 -->
+  <view class="order-box" wx:if="{{userInfo.roleId == 2}}">
+    <view class="top-line">民警专栏
+    </view>
+    <view class="o-menus">
+      <view bindtap="navTo" data-url="/pages/information/houseInfo?id={{id}}" class="explain">查看房屋信息</view>
+      <view bindtap="navTo" data-url="/pages/information/residentialInfo?id={{id}}" class="explain">查看小区信息</view>
+      <view bindtap="navTo" data-url="/pages/record/history?id={{id}}" class="explain">查看房屋出租历史</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,15 @@
+<!--pages/information/normalHouse.wxml-->
+<view class="page">
+  <van-field left-icon="home-o" label="地址" model:value="{{address}}" placeholder="输入详情介绍" type="textarea" autosize />
+  <van-field left-icon="question-o" model:value="{{police.phoneNumber}}" label="民警电话" placeholder="是否出租" input-align="left"/>
+  <van-field left-icon="question-o" model:value="{{isBound?'是':'否'}}" label="是否有户主" placeholder="是否有户主" input-align="left"/>
+
+  <van-field left-icon="question-o" model:value="{{isRented?'是':'否'}}" label="是否出租" placeholder="是否出租" input-align="left"/>
+
+  <image src="{{pictureUrl}}" class="choose-image" bindtap="chooseImage"></image>
+
+  <van-cell-group>
+    <text bindtap="lookDocument" style="color: blue; margin-left: 15px;">查看房屋文档 </text>
+  </van-cell-group>
+
+</view>

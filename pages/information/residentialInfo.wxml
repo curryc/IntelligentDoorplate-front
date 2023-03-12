@@ -1,0 +1,11 @@
+<!--pages/information/residentialInfo.wxml-->
+<navigator wx:key="id" wx:for="{{estate}}" wx:for-item="house">
+  <view class="page" style="padding-top: 10px;">
+    <van-cell-group inset>
+      <van-cell title="房屋id" value="{{house.id}}" />
+      <van-cell title="房屋地址" value="{{house.address}}" />
+      <van-cell title="是否有户主" value="{{house.isBound?'是':'否'}}"/>
+      <van-cell title="是否被出租" value="{{house.isRented?'是':'否'}}"/>
+    </van-cell-group>
+  </view>
+</navigator>

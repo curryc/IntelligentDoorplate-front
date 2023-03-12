@@ -1,0 +1,25 @@
+<!--pages/list/recordItem.wxml-->
+<view class="page">
+  <van-cell-group>
+    <van-field left-icon="description" model:value="{{id}}" label="记录ID" placeholder="请输入记录的ID" input-align="left" disabled/>
+    <van-field left-icon="wap-home-o" model:value="{{qrId}}" label="房屋ID" placeholder="请输入房屋ID" input-align="left"/>
+    <van-field left-icon="user-circle-o" model:value="{{tenantId}}" label="租户ID" placeholder="请输入租户ID" input-align="left"/>
+  </van-cell-group>
+  
+  <view class="my-picker">
+    <van-icon name="label-o" class="my-picker-icon" />
+    <view class="my-picker-label">当前情况</view>
+    <van-radio-group bind:change="selectRented" style="margin-left: 45px;" class="my-picker-input" value="{{isRented?'1':'0'}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1">正在租赁</van-radio>
+      <van-radio checked-color="#e64340" name="0">租赁过期</van-radio>
+    </van-radio-group>
+  </view>
+
+  <view wx:if="{{id}}" class="btn1check">
+    <van-button class="btncheck" type="primary" bindtap="update">更改数据</van-button>
+    <van-button class="btncheck" type="danger" bindtap="delete">删除数据</van-button>
+  </view>
+  <view wx:if="{{!id}}" class="btn1check">
+    <van-button class="btncheck" type="primary" bindtap="add" >添加数据</van-button>
+  </view>
+</view>

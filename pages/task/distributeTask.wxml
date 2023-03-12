@@ -1,0 +1,13 @@
+<!--pages/distributeTask/distributeTask.wxml-->
+<view class="title">巡警任务</view>
+  <van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+  <van-collapse-item icon="completed" title="任务{{k+1}} {{task.name}}" name="{{k}}" wx:key="id" wx:for="{{tasks}}" wx:for-item="task" wx:for-index="k">
+    <van-cell-group>
+      <van-cell title="任务地址" value="{{task.host.address}}" />
+      <van-cell title="结束时间" value="{{task.completeTime}}" />
+      <van-cell title="任务描述" value="{{task.description}}" />
+      <van-cell title="任务ID" value="{{task.id}}" /> 
+      <button class="normal-button" style="background-color: #ffffff; color: #e64340;" data-id="{{task.id}}" bindtap="goComplete">去巡查</button> 
+    </van-cell-group>
+  </van-collapse-item>
+</van-collapse>

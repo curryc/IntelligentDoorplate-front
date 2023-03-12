@@ -1,0 +1,79 @@
+<!--pages/list/qrcodeItem.wxml-->
+<view class="page">
+  <van-cell-group>
+    <van-field left-icon="qr" model:value="{{id}}" label="二维码ID" placeholder="请输入二维码ID" input-align="left" disabled />
+    <van-field left-icon="user-circle-o" model:value="{{userId}}" label="户主ID" placeholder="请输入户主ID" input-align="left" />
+  </van-cell-group>
+
+  <view class="my-picker">
+    <image class="my-picker-icon" src="../../assets/images/location.png"></image>
+    <view class="my-picker-label">选择地址</view>
+    <picker mode="region" bindchange='inputAddress'>
+      <input enable="false" class="my-picker-input" placeholder-style="color:#bebebe;font-size:14px" placeholder="请选择地址" value="{{address}}" disabled7>hello world</input>
+    </picker>
+  </view>
+
+  <van-cell-group>
+    <van-field left-icon="home-o" model:value="{{address}}" label="详细地址" placeholder="请输入详细地址" input-align="left" />
+  </van-cell-group>
+
+  <van-cell-group>
+    <van-field left-icon="guide-o" model:value="{{longitude}}" label="经度" placeholder="请输入经度" input-align="left" />
+    <van-field left-icon="guide-o" model:value="{{latitude}}" label="纬度" placeholder="请输入纬度" input-align="left" />
+  </van-cell-group>
+
+  <view class="my-picker">
+    <van-icon name="question-o" class="my-picker-icon" />
+    <view class="my-picker-label">是否绑定</view>
+    <van-radio-group bind:change="selectIsBound" style="margin-left: 70px;" class="my-picker-input" value="{{isBound?'1':'0'}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1">是</van-radio>
+      <van-radio checked-color="#e64340" name="0">否</van-radio>
+    </van-radio-group>
+  </view>
+  
+  <view class="my-picker">
+    <van-icon name="question-o" class="my-picker-icon" />
+    <view class="my-picker-label">是否出租</view>
+    <van-radio-group bind:change="selectIsRented" style="margin-left: 70px;" class="my-picker-input" value="{{isRented?'1':'0'}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1">是</van-radio>
+      <van-radio checked-color="#e64340" name="0">否</van-radio>
+    </van-radio-group>
+  </view>
+  <image src="{{imageUrl}}" class="choose-image" bindtap="chooseImage"></image>
+
+  <van-cell-group>
+    <text bindtap="lookDocument" style="color: blue; margin-left: 15px;">查看文档 </text>
+    <text bindtap="uploadDocument" style="color: blue;margin-left: 20px;" wx:if="{{!fileUpLoaded}}">上传文档</text>
+    <text wx:if="{{fileUpLoaded}}"> {{fileName}}</text>
+    <text wx:if="{{fileUpLoaded}}" bindtap="uploadDocument" style="color: blue;margin-left: 20px;">重新上传</text>
+  </van-cell-group>
+
+  <view class="my-picker">
+    <van-icon name="question-o" class="my-picker-icon" />
+    <view class="my-picker-label">是否检查</view>
+    <van-radio-group bind:change="selectIsChecked" style="margin-left: 40px;" class="my-picker-input" value="{{isChecked?'1':'0'}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1">是</van-radio>
+      <van-radio checked-color="#e64340" name="0">否</van-radio>
+    </van-radio-group>
+  </view>
+  <view class="my-picker">
+    <van-icon name="label-o" class="my-picker-icon" />
+    <view class="my-picker-label">类型</view>
+    <van-radio-group bind:change="selectType" style="margin-left: 70px;" class="my-picker-input" value="{{''+type}}" direction="horizontal">
+      <van-radio checked-color="#e64340" name="1">房屋</van-radio>
+      <van-radio checked-color="#e64340" name="2">小区</van-radio>
+    </van-radio-group>
+  </view>
+  <van-cell-group>
+    <van-field left-icon="wap-home-o" model:value="{{parentId}}" label="所属小区" placeholder="请输入所属小区ID" input-align="left" />
+  </van-cell-group>
+  <!-- <image src="{{imageUrl}}" class="choose-image" bindtap="chooseImage"></image> -->
+
+  <view wx:if="{{id}}" class="btn1check">
+    <van-button class="btncheck" type="primary" bindtap="update">更改数据</van-button>
+    <van-button class="btncheck" type="danger" bindtap="delete">删除数据</van-button>
+  </view>
+  <view wx:if="{{!id}}" class="btn1check">
+    <van-button class="btncheck" type="primary" bindtap="add">添加数据</van-button>
+  </view>
+</view>

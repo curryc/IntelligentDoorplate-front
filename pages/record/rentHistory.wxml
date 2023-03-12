@@ -1,0 +1,13 @@
+<!--pages/record/rentHistory.wxml-->
+<view class="title">租房历史</view>
+<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+  <van-collapse-item icon="wap-home-o" title="记录{{k+1}}" name="{{k}}" wx:key="id" wx:for="{{records}}" wx:for-item="record" wx:for-index="k">
+    <van-cell-group>
+      <van-cell title="地址" value="{{record.address}}" />
+      <van-cell title="承租人" value="{{record.name}}" />
+      <van-cell title="承租人电话" value="{{record.phoneNumber}}" />
+      <van-cell title="起租时间" value="{{record.startTime}}" />
+      <van-cell title="结束时间" value="{{record.endTime}}" />
+    </van-cell-group>
+  </van-collapse-item>
+</van-collapse>
